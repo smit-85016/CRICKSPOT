@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Cricket Booking</title>
+
+    <link rel="stylesheet" href="nav.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        /* body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('images/t3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: auto;
+            position: relative;
+        } */
+
+        /* body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: inherit;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: blur(5px);
+            z-index: -1;
+        } */
+
+        main {
+            padding: 1em;
+            /* margin-top: auto; */
+        }
+
+        /* Venue Section */
+        .vanue-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.3em;
+            max-width: 15   00px;
+            margin: 30px;
+            /* margin: 0 auto; */
+        }
+
+        /* Venue Card */
+        .vanue-card {
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .vanue-card:hover {
+            transform: translateY(-10px);
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Venue Image */
+        .venue-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            background-color: #ddd;
+            /* Light gray in case image doesn't load */
+        }
+
+        /* Venue Info */
+        .venue-info {
+            padding: 1em;
+            text-align: left;
+        }
+
+        .venue-info h3 {
+            font-size: 1.2em;
+            margin: 0 0 0.5em;
+            color: #0077cc;
+        }
+
+        .venue-info p {
+            margin: 0.3em 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="nav-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">CRICKSPOT</a>
+
+            <!-- Centered Nav Links -->
+            <ul class="nav-links nav-center">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Book</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+            </ul>
+
+            <!-- Right-side Login/Signup -->
+            <ul class="nav-links nav-right">
+                <li><a href="login.html"><i class="fas fa-user"></i> Login / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="Venues" class="vcard">
+            <div class="vanue-list"></div>
+        </section>
+    </main>
+
+    <script>
+        const Venues = [
+            {
+                name: "H3 Sports Academy",
+                city: "Ahmedabad",
+                rating: "4.55",
+                badge: "Bookable",
+                price: "₹199",
+                image: "box1.webp"
+            },
+            {
+                name: "Royal Cricket Ground",
+                city: "Ahmedabad",
+                rating: "4.8",
+                badge: "Bookable",
+                price: "₹249",
+                image: "box1.1.webp"
+            },
+            {
+                name: "Cricket Arena",
+                city: "Surat",
+                rating: "4.6",
+                badge: "Bookable",
+                price: "₹179",
+                image: "box1.2.webp"
+            },
+            {
+                name: "Sports Galaxy",
+                city: "Rajkot",
+                rating: "4.7",
+                badge: "Bookable",
+                price: "₹220",
+                image: "box1.3.webp"
+            }
+        ];
+
+        function generateVenues() {
+            const venueList = document.querySelector(".vanue-list");
+
+            Venues.forEach(element => {
+                // Create a venue card element
+                const venueCard = document.createElement("div");
+                venueCard.classList.add("vanue-card");
+
+                // Add image
+                const img = document.createElement("img");
+                img.src = element.image;
+                img.alt = `${element.name} Image`;
+                img.classList.add("venue-image");
+                venueCard.appendChild(img);
+
+                // Add venue details
+                const venueInfo = document.createElement("div");
+                venueInfo.classList.add("venue-info");
+
+                const name = document.createElement("h3");
+                name.innerText = element.name;
+                venueInfo.appendChild(name);
+
+                const details = document.createElement("p");
+                details.innerHTML = `⭐ ${element.rating} | ${element.city}`;
+                venueInfo.appendChild(details);
+
+                const price = document.createElement("p");
+                price.innerHTML = `<strong>${element.price}</strong>`;
+                venueInfo.appendChild(price);
+
+                // Append venue info to the card
+                venueCard.appendChild(venueInfo);
+
+                // Append venue card to the venue list
+                venueList.appendChild(venueCard);
+            });
+        }
+
+        // Call the function when the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", generateVenues);
+    </script>
+
+</body>
+
+</html>

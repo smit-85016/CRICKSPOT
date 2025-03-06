@@ -1,0 +1,88 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Venue Container */
+.venue-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.venue-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    /* height: 100%; */
+    /* max-width: 1200px; */
+}
+
+/* Venue Card */
+.venue-card {
+    background: white;
+    /* border-radius: 1px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.venue-card:hover {
+    transform: scale(1.02);
+}
+
+/* Venue Image */
+.venue-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Venue Info */
+.venue-info {
+    padding: 12px;
+}
+
+.venue-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.venue-info p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Price */
+.venue-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+}
+
+/* Rating */
+.venue-rating {
+    font-size: 14px;
+    color: #f4b400;
+}
+
+/* Badge */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #28a745;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    /* border-radius: 8px; */
+}
